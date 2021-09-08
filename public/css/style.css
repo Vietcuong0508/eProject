@@ -1,0 +1,126 @@
+a {
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+}
+.header-account {
+    display: inline-block;
+    position: absolute;
+    right: 115px;
+    padding: 9px 10px;
+    cursor:pointer;
+    border-right: 1px solid hsla(0,0%,100%,.08);
+}
+.header-cart {
+    display: inline-block;
+    position: absolute;
+    right: 5px;
+    padding: 18px 30px;
+    cursor: pointer;
+}
+.header-cart:hover {
+    background-color: #383838;
+}
+.header-account:hover {
+    background-color: #424242;
+}
+.account {
+    pointer-events:none;
+
+}
+.header .header-item, .my-list .header-item {
+    display: inline-block;
+    vertical-align: middle;
+
+}
+.search__btn {
+    border-radius: 0 3px 3px 0;
+    color: #999;
+    font-size: 24px;
+    height: 36px;
+    padding: 0;
+    width: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.search-input {
+    border-radius: 3px;
+    border: 0;
+    box-sizing: border-box;
+    color: #333;
+    font-size: 12px;
+    height: 36px;
+    margin-right: -43px;
+    padding: 0 16px 0 30px;
+    width: 100%;
+}
+.header {
+    background-color:black;
+    color: #fff;
+    font-size: 14px;
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-logo img {
+    height: 60px;
+    margin-left: 15px;
+}
+
+.search {
+    background-color: #fff;
+    border-radius: 3px;
+    left: 300px;
+    top: 12px;
+    position: absolute;
+    width: calc(100% - 680px);
+}
+.my-account {
+    margin-right: 45px;
+    cursor: pointer;
+}
+.shopping-cart {
+    cursor:pointer;
+}
+
+/*---- footer ---*/
+.footer {
+    margin-top: 100px;
+    color: white;
+    background-color: #14800e;
+    display: block;
+    font-size: 25px;
+}
+
+.header-logo img {
+    width: 100px;
+}
+
+.footer-icon {
+    font-size: 25px;
+    cursor:pointer;
+}
+.home, .about, .contact, .services {
+    border-right: 2px solid hsl(0deg 0% 0% / 8%);
+}
+
+
+.footer-icon img {
+    width: 50px;
+    margin: 10px 20px;
+    cursor: pointer;
+    filter: grayscale(100%);
+}
+
+.footer-icon img:hover {
+    filter: grayscale(0);
+}
+
+.carousel-inner img {
+    margin-top: 100px;
+    height: 500px;
+    width: 100%;
+}
