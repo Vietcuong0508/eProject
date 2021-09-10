@@ -10,9 +10,9 @@
                     <li>
                         <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fas fa-user"></i> <span class="mini-click-non">Users Manager</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="Peity Charts" href=""><span
-                                        class="mini-sub-pro"><i class="fas fa-tools"></i> Create User</span></a></li>
-                            <li><a title="Data Table" href=""><span
+                            <li><a title="Peity Charts" href="/admin/create-user"><span
+                                        class="mini-sub-pro"><i class="fas fa-tools"></i>Create User</span></a></li>
+                            <li><a title="Data Table" href="/admin/list-user"><span
                                         class="mini-sub-pro"><i class="fas fa-table"></i> List User</span></a></li>
                         </ul>
                     </li>
