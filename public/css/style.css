@@ -124,3 +124,31 @@ a {
     height: 500px;
     width: 100%;
 }
+
+.btn-submit {
+    border-radius: 50px;
+    color: #fff;
+    background-image: linear-gradient(to right, #42fd00, #83fa46);
+    padding: 10px;
+    cursor: pointer;
+    border: none !important;
+    margin-top: 20px
+}
+
+.btn-submit:hover {
+    color: #fff;
+    background-image: linear-gradient(to right, #78ff48, #14fd02)
+}
+
+.btn-register {
+    border-radius: 50px;
+    color: #89ff41;
+    background-color: #fff;
+    padding: 7px 10px;
+    cursor: pointer;
+    border: 2px solid #68ff5a !important
+}
+.btn-register:hover {
+    color: white;
+    background-image: linear-gradient(to right, #95f65c, #0aff03)
+}

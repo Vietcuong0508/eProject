@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminClientController;
 use App\Http\Controllers\LayoutAdminController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -20,8 +21,19 @@ Route::get('/home', function () {
 });
 
 Route::get('/home-page', [ProductController::class, 'index']);
-Route::get('/create', [ProductController::class, 'create']);
-Route::post('/create', [ProductController::class, 'store']);
+Route::get('/home-page/login', [AdminClientController::class, 'login']);
+Route::get('/home-page/register', [AdminClientController::class, 'register']);
+Route::post('/home-page/register', [AdminClientController::class, 'store']);
+
+Route::get('/admin/list-user', [AdminClientController::class, 'index']);
+Route::get('/admin/create-user', [AdminClientController::class, 'create']);
+Route::post('/admin/create-user', [AdminClientController::class, 'storeAdmin']);
+Route::delete('/admin/destroy/{id}', [AdminClientController::class, 'destroy']);
+Route::put('/admin/update/{id}', [AdminClientController::class, 'update']);
+Route::get('/admin/edit/{id}', [AdminClientController::class, 'edit']);
+Route::get('/admin/create', [ProductController::class, 'create']);
+Route::post('/admin/create', [ProductController::class, 'store']);
+
 
 Route::get('/admin', function () {
     return view('layout-admin/dashboard');
