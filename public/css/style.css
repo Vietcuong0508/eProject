@@ -11,7 +11,7 @@ a {
     cursor:pointer;
     border-right: 1px solid hsla(0,0%,100%,.08);
 }
-.header-cart {
+.cart-header {
     display: inline-block;
     position: absolute;
     right: 5px;
@@ -82,7 +82,7 @@ a {
     margin-right: 45px;
     cursor: pointer;
 }
-.shopping-cart {
+.my-shopping-cart {
     cursor:pointer;
 }
 
@@ -152,3 +152,4 @@ a {
     color: white;
     background-image: linear-gradient(to right, #95f65c, #0aff03)
 }
+

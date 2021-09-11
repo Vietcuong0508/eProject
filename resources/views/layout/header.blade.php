@@ -15,13 +15,15 @@
                             <div class="">Login/Sign Up</div>
                         </div>
                     </div>
-                </a></div>
+                </a>
+            </div>
         </div>
-        <div class="header-cart">
+        <div class="cart-header" id="cart">
             <div class="header-item">
-                <div class="shopping-cart "><span>My Cart</span>
+                <div class="my-shopping-cart "><span>My Cart</span>
                 </div>
             </div>
         </div>
+
     </header>
 </div>
