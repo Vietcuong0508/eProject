@@ -16,7 +16,6 @@
 
 <!------End Content ----------->
 
-
     @include('layout-admin.footer')
 </div>
 @yield('js')

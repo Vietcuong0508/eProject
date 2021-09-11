@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminClientController;
 use App\Http\Controllers\LayoutAdminController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShoppingCartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,11 @@ Route::put('/admin/update/{id}', [AdminClientController::class, 'update']);
 Route::get('/admin/edit/{id}', [AdminClientController::class, 'edit']);
 Route::get('/admin/create', [ProductController::class, 'create']);
 Route::post('/admin/create', [ProductController::class, 'store']);
+
+Route::get('/shopping/add', [ShoppingCartController::class, 'add'])->name('name');
+Route::get('/shopping/cart', [ShoppingCartController::class, 'show']);
+Route::get('/shopping/remove', [ShoppingCartController::class, 'remove']);
+Route::post('/shopping/save', [ShoppingCartController::class, 'save']);
 
 
 Route::get('/admin', function () {

@@ -44,7 +44,9 @@
                             <p class="card-text">{{$obj->price}}.000 đồng</p>
                         </div>
                         <div class="col-6">
-                            <a href="#" class="btn btn-primary">Add to cart</a>
+                            <a href="/shopping/add?productId={{$obj->id}}&productQuantity=1">
+                                <button class="btn btn-primary">Add to cart  <i class="fa fa-shopping-cart"></i></button>
+                            </a>
                         </div>
                     </div>
                 </div>
