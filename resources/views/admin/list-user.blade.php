@@ -23,7 +23,7 @@
     </div>
 @endif
 <div class="container">
-    <table class="table" style="margin-left: 120px">
+    <table class="table mt-5" style="margin-left: 150px">
         <thead>
         <tr>
             <th>Full Name</th>
@@ -43,8 +43,8 @@
                 <td>{{$users->address}}</td>
                 <td>{{$users->permission}}</td>
                 <td class="row hidden-phone">
-                    <a class="btn btn-primary"
-                       href="/admin/edit/{{$users->id}}">Update</a>&nbsp;&nbsp;
+                    <a href="/admin/edit/{{$users->id}}">
+                        <button class="btn btn-primary"><i class="fas fa-edit"></i> Edit</button></a>
                     <form action="/admin/destroy/{{$users->id}}" method="post">
                         @csrf
                         @method('delete')

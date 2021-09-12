@@ -8,7 +8,7 @@
 @include('layout-admin.left-sidebar')
 <!-- End Left menu area -->
 <!-- Start Welcome area -->
-<div class="all-content-wrapper">
+<div>
 @include('layout-admin.header')
 <!------Content ----------->
 

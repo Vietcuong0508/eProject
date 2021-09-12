@@ -1,38 +1,24 @@
+
 a {
     color: inherit;
     cursor: pointer;
     text-decoration: none;
 }
-.header-account {
-    display: inline-block;
-    position: absolute;
-    right: 115px;
-    padding: 9px 10px;
-    cursor:pointer;
-    border-right: 1px solid hsla(0,0%,100%,.08);
-}
-.cart-header {
-    display: inline-block;
-    position: absolute;
-    right: 5px;
-    padding: 18px 30px;
-    cursor: pointer;
-}
-.header-cart:hover {
-    background-color: #383838;
-}
-.header-account:hover {
-    background-color: #424242;
-}
-.account {
-    pointer-events:none;
 
+.wrapper {
+    margin-top: 62px;
 }
-.header .header-item, .my-list .header-item {
-    display: inline-block;
-    vertical-align: middle;
 
+.header {
+    background-color:black;
+    color: #fff;
+    font-size: 14px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
+
 .search__btn {
     border-radius: 0 3px 3px 0;
     color: #999;
@@ -55,21 +41,6 @@ a {
     padding: 0 16px 0 30px;
     width: 100%;
 }
-.header {
-    background-color:black;
-    color: #fff;
-    font-size: 14px;
-    height: 60px;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-}
-
-.header-logo img {
-    height: 60px;
-    margin-left: 15px;
-}
-
 .search {
     background-color: #fff;
     border-radius: 3px;
@@ -78,33 +49,18 @@ a {
     position: absolute;
     width: calc(100% - 680px);
 }
-.my-account {
-    margin-right: 45px;
-    cursor: pointer;
-}
-.my-shopping-cart {
-    cursor:pointer;
-}
-
 /*---- footer ---*/
 .footer {
-    margin-top: 100px;
+    margin-top: 20px;
     color: white;
     background-color: #14800e;
     display: block;
-    font-size: 25px;
-}
-
-.header-logo img {
-    width: 100px;
+    font-size: 22px;
 }
 
 .footer-icon {
     font-size: 25px;
     cursor:pointer;
-}
-.home, .about, .contact, .services {
-    border-right: 2px solid hsl(0deg 0% 0% / 8%);
 }
 
 
@@ -120,7 +76,7 @@ a {
 }
 
 .carousel-inner img {
-    margin-top: 100px;
+    margin-top: 60px;
     height: 500px;
     width: 100%;
 }

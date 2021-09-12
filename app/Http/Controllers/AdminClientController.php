@@ -15,7 +15,7 @@ class AdminClientController extends Controller
     public function index()
     {
         $listUser = Admin::all();
-        return view('layout-admin.list-user', ['list' => $listUser]);
+        return view('admin.list-user', ['list' => $listUser]);
     }
 
     public function register()
@@ -24,7 +24,7 @@ class AdminClientController extends Controller
     }
     public function create()
     {
-        return view('layout-admin.admin');
+        return view('admin.admin');
     }
     public function login()
     {
@@ -84,7 +84,7 @@ class AdminClientController extends Controller
         if ($obj == null) {
             return view('error.404');
         }
-        return view('layout-admin.edit', ['obj' => $obj]);
+        return view('admin.edit', ['obj' => $obj]);
     }
 
     public function destroy($id)

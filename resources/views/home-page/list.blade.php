@@ -28,29 +28,34 @@
             </a>
         </div>
     </div>
-    <div class="row">
-        @foreach($list as $obj)
-            <div class="col-3 p-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{$obj->thumbnail}}" alt="Card image cap" height="200px">
-                    <div class="card-body">
-                        <h5 class="card-title">{{$obj->name}}</h5>
-                    </div>
-                    <div>
-                        <h6 class="card-title">{{$obj->weight}}</h6>
-                    </div>
-                    <div class="row card-title">
-                        <div class="col-6">
-                            <p class="card-text">{{$obj->price}}.000 đồng</p>
-                        </div>
-                        <div class="col-6">
-                            <a href="/shopping/add?productId={{$obj->id}}&productQuantity=1">
-                                <button class="btn btn-primary">Add to cart  <i class="fa fa-shopping-cart"></i></button>
-                            </a>
+    <h3 class="col-12 p-3 text-white bg-success text-center">Danh mục sản phẩm</h3>
+    <div class="container " style="font-family: Lemonada, sans-serif">
+        <div class="row bg-light">
+            @foreach($list as $obj)
+                <div class="col-2 " style="margin: 19px">
+                    <div class="card">
+                        <img class="" style="margin: 14px" src="{{$obj->thumbnail}}" alt="Card image cap" width="130px" height="130px">
+                        <div class="text-center">
+                            <div class="border-top">
+                                <div class="card-title px-2">{{$obj->name}}</div>
+                            </div>
+                            <div class="row card-title">
+                                <div class="col-12">
+                                    <p class="card-text">{{$obj->price}}00 đồng</p>
+                                </div>
+                                <div class="col-12">
+                                    <a href="/shopping/add?productId={{$obj->id}}&productQuantity=1">
+                                        <button class="btn text-success border-success">Add to cart <i class="fa fa-shopping-cart"></i></button>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
+    <div class="col-12 text-center"><a class=" my-2 p-2 btn text-success border border-success" href="/home-page/product">Xem thêm -></a></div>
+    <h3 class="col-12 py-4 bg-success"></h3>
 @endsection
+

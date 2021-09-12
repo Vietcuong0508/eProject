@@ -21,7 +21,8 @@ Route::get('/home', function () {
     return view('layout/layout');
 });
 
-Route::get('/home-page', [ProductController::class, 'index']);
+Route::get('/home-page', [ProductController::class, 'listHome']);
+Route::get('/home-page/product', [ProductController::class, 'indexProduct']);
 Route::get('/home-page/login', [AdminClientController::class, 'login']);
 Route::get('/home-page/register', [AdminClientController::class, 'register']);
 Route::post('/home-page/register', [AdminClientController::class, 'store']);

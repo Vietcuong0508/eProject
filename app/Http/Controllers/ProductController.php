@@ -8,10 +8,16 @@ use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function listHome()
     {
-        $list = Product::all();
-        return view('home-page/list', ['list' => $list]);
+        Product::paginate(10);
+        return view('home-page/list', ['list' => Product::paginate(10)]);
+    }
+
+    public function indexProduct()
+    {
+        Product::paginate(20);
+        return view('home-page/product', ['list' => Product::paginate(20)]);
     }
 
     public function create()
@@ -57,4 +63,5 @@ class ProductController extends Controller
         $detail->delete();
         return redirect('manager/form-user');
     }
+
 }

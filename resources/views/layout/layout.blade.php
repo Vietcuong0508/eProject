@@ -8,7 +8,6 @@
 {{--@include('layout.left-sidebar')--}}
 <!-- End Left menu area -->
 <!-- Start Welcome area -->
-<div class="all-content-wrapper">
 @include('layout.header')
 <!------Content ----------->
 
