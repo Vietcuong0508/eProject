@@ -33,8 +33,13 @@ Route::post('/admin/create-user', [AdminClientController::class, 'storeAdmin']);
 Route::delete('/admin/destroy/{id}', [AdminClientController::class, 'destroy']);
 Route::put('/admin/update/{id}', [AdminClientController::class, 'update']);
 Route::get('/admin/edit/{id}', [AdminClientController::class, 'edit']);
-Route::get('/admin/create', [ProductController::class, 'create']);
-Route::post('/admin/create', [ProductController::class, 'store']);
+
+Route::get('/admin/list-product', [ProductController::class, 'index']);
+Route::get('/admin/create-product', [ProductController::class, 'create']);
+Route::post('/admin/create-product', [ProductController::class, 'store']);
+Route::put('/admin/update-product/{id}', [ProductController::class, 'update']);
+Route::get('/admin/edit-product/{id}', [ProductController::class, 'edit']);
+Route::delete('/admin/destroy-product/{id}', [ProductController::class, 'destroy']);
 
 Route::get('/shopping/add', [ShoppingCartController::class, 'add'])->name('name');
 Route::get('/shopping/cart', [ShoppingCartController::class, 'show']);
@@ -45,8 +50,3 @@ Route::post('/shopping/save', [ShoppingCartController::class, 'save']);
 Route::get('/admin', function () {
     return view('layout-admin/dashboard');
 });
-
-
-Route::get('',[LayoutAdminController::class,'dashboard']);
-Route::get('/form',[LayoutAdminController::class,'create']);
-Route::get('/list',[LayoutAdminController::class,'list']);

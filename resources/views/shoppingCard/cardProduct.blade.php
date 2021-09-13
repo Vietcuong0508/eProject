@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-@include('layout.head')
-<body>
-@include('layout.header')
+@extends('layout/layout')
+@section('content')
     <div class="wrapper">
         <div class="container-fluid h-100">
             <div class="row">
@@ -48,7 +45,8 @@
                                 <input type="hidden" name="cartAction" value="update">
                                 <input type="hidden" name="productId" value="{{$products->id}}">
                                 <tr>
-                                    <td class="mt-2"><img src="{{$products->thumbnail}}" style="width: 100px; height: 100px">
+                                    <td class="mt-2"><img src="{{$products->thumbnail}}"
+                                                          style="width: 100px; height: 100px">
                                     </td>
                                     <td>
                                         <div>
@@ -57,7 +55,8 @@
                                         <div>Nha vuon</div>
                                     </td>
                                     <td>{{$products->price}}</td>
-                                    <td><input style="outline: none; width: 150px" type="number" min="1" name="productQuantity"
+                                    <td><input style="outline: none; width: 150px" type="number" min="1"
+                                               name="productQuantity"
                                                value="{{$products->quantity}}"></td>
                                     <td>{{$products->quantity * $products->price}}</td>
                                     <th>
@@ -65,7 +64,8 @@
                                                 class="fas fa-edit"></i>
                                             Update
                                         </button>
-                                        <a class="btn btn-danger m-2" href="/shopping/remove?productId={{$products->id}}"
+                                        <a class="btn btn-danger m-2"
+                                           href="/shopping/remove?productId={{$products->id}}"
                                            onclick="return confirm('Ban co muon xoa?')">
                                             <i class="fas fa-trash-alt"></i>
                                             Remove
@@ -112,7 +112,4 @@
             </div>
         </div>
     </div>
-@include('layout.footer')
-</div>
-</body>
-</html>
+@endsection

@@ -1,16 +1,5 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
-@include('layout-admin.head')
-
-<body style="background-color: #f6f8fa">
-<!-- Start Left menu area -->
-@include('layout-admin.left-sidebar')
-<!-- End Left menu area -->
-<!-- Start Welcome area -->
-<div class="all-content-wrapper">
-@include('layout-admin.header')
-<!------Content ----------->
+@extends('layout-admin/dashboard')
+@section('content')
     <section class="h-100">
         <div class="container mt-4 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -89,10 +78,4 @@
         </div>
     </section>
     <!------End Content ----------->
-
-
-</div>
-@yield('js')
-@include('layout-admin.scripts')
-</body>
-</html>
+@endsection

@@ -8,15 +8,16 @@
 @include('layout-admin.left-sidebar')
 <!-- End Left menu area -->
 <!-- Start Welcome area -->
-<div>
-@include('layout-admin.header')
+<div class="wrapper col-12">
+
+    @include('layout-admin.header')
 <!------Content ----------->
 
 @yield('content')
 
 <!------End Content ----------->
 
-    @include('layout-admin.footer')
+{{--    @include('layout-admin.footer')--}}
 </div>
 @yield('js')
 @include('layout-admin.scripts')

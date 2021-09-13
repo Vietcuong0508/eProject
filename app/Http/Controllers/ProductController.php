@@ -14,6 +14,19 @@ class ProductController extends Controller
         return view('home-page/list', ['list' => Product::paginate(10)]);
     }
 
+    public function index(Request $request)
+    {
+        $queryBuilder = Product::query();
+        $search = $request->query('search');
+        if ($search && strlen($search) > 0) {
+            $queryBuilder = $queryBuilder->where('title', 'like', '%' .$search. '%');
+        }
+        $events = $queryBuilder->paginate(10)->appends(['search' => $search]);
+        return view('products/list-product', [
+            'list' => $events,
+        ]);
+    }
+
     public function indexProduct()
     {
         Product::paginate(20);
@@ -22,7 +35,7 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('products/create');
+        return view('products/admin');
     }
 
 
@@ -43,7 +56,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $detail = Product::find($id);
-        return view('manager/form-user', [
+        return view('products/edit', [
             'edit'=>$detail
         ]);
     }
@@ -53,7 +66,7 @@ class ProductController extends Controller
         $detail = Product::find($id);
         $detail->update($request->all());
         $detail->save();
-        return redirect('manager/form-user');
+        return redirect('/admin/list-product');
     }
 
 

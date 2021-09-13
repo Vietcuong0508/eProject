@@ -1,8 +1,8 @@
 <div class="left-sidebar-pro">
     <nav id="sidebar" class="">
         <div class="sidebar-header">
-            <a href="#"><img class="main-logo" src="images/logo_background_white.png" alt=""/></a>
-            <strong><a href="#"><img src="images/[removal.ai]_tmp-6133311f643d6.png" alt=""/></a></strong>
+            <a href="#"><img class="main-logo" src="/images/logo_background_white.png" alt=""/></a>
+            <strong><a href="#"><img src="/images/[removal.ai]_tmp-6133311f643d6.png" alt=""/></a></strong>
         </div>
         <div class="left-custom-menu-adp-wrap comment-scrollbar">
             <nav class="sidebar-nav left-sidebar-menu-pro">
@@ -19,9 +19,9 @@
                     <li>
                         <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fab fa-product-hunt"></i> <span class="mini-click-non">Products Manager</span></a>
                         <ul class="submenu-angle form-mini-nb-dp" aria-expanded="false">
-                            <li><a title="Basic Form Elements" href="/create"><span
+                            <li><a title="Basic Form Elements" href="/admin/create-product"><span
                                         class="mini-sub-pro"><i class="fas fa-tools"></i> Create Product</span></a></li>
-                            <li><a title="Advance Form Elements" href="/list"><span
+                            <li><a title="Advance Form Elements" href="/admin/list-product"><span
                                         class="mini-sub-pro"><i class="fas fa-table"></i> List Product</span></a></li>
                         </ul>
                     </li>
