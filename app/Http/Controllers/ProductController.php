@@ -11,7 +11,7 @@ class ProductController extends Controller
     public function listHome()
     {
         Product::paginate(10);
-        return view('home-page/list', ['list' => Product::paginate(10)]);
+        return view('home/list', ['list' => Product::paginate(10)]);
     }
 
     public function index(Request $request)
@@ -30,12 +30,12 @@ class ProductController extends Controller
     public function indexProduct()
     {
         Product::paginate(20);
-        return view('home-page/product', ['list' => Product::paginate(20)]);
+        return view('home/product', ['list' => Product::paginate(20)]);
     }
 
     public function create()
     {
-        return view('products/admin');
+        return view('products/form');
     }
 
 
@@ -44,7 +44,7 @@ class ProductController extends Controller
         $product = new Product();
         $product->fill($request->all());
         $product->save();
-        return redirect('/home-page');
+        return redirect('/');
     }
 
     public function show(Product $Product)
@@ -74,7 +74,7 @@ class ProductController extends Controller
     {
         $detail = Product::find($id);
         $detail->delete();
-        return redirect('manager/form-user');
+        return redirect('/admin/list-product');
     }
 
 }

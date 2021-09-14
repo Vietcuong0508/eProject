@@ -55,7 +55,7 @@
             @endforeach
         </div>
     </div>
-    <div class="col-12 text-center"><a class=" my-2 p-2 btn text-success border border-success" href="/home-page/product">Xem thêm -></a></div>
+    <div class="col-12 text-center"><a class=" my-2 p-2 btn text-success border border-success" href="/home/product">Xem thêm -></a></div>
     <h3 class="col-12 py-4 bg-success"></h3>
 @endsection
 

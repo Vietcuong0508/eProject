@@ -6,7 +6,7 @@
                 <div class="col">
                     <div class="card card-registration my-4"style="margin-left: 200px">
                         <div class="col-xl-12">
-                            <form action="/admin/create-user" method="post">
+                            <form action="/admin/create-product" method="post">
                                 @csrf
                                 <div class="card-body p-md-5 text-black">
                                     <h3 class="mb-3 text-uppercase">Create Product</h3>
@@ -49,7 +49,6 @@
                                     <div class="row justify-content-center px-3">
                                         <button type="submit" class="btn btn-success">Submit form</button>
                                     </div>
-
                                 </div>
                             </form>
                         </div>

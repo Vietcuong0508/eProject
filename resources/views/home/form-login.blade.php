@@ -39,8 +39,8 @@
                                         <div class="row justify-content-center px-3"> <button type="submit" class="btn-block btn-submit">Submit form</button> </div>
                                         <div class="row justify-content-center my-2"> <a href="#" class="text-muted">Forgot Password?</a> </div>
                                         <div class="bottom text-center mb-5">
-                                            <p href="/home-page/register" class="sm-text mx-auto mb-3">Don't have an account?
-                                                <a href="/home-page/register" class="btn btn-success ml-2 btn-register">Create new
+                                            <p href="/home/register" class="sm-text mx-auto mb-3">Don't have an account?
+                                                <a href="/home/register" class="btn btn-success ml-2 btn-register">Create new
                                                 </a>
                                             </p>
                                         </div>

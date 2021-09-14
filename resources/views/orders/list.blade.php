@@ -27,21 +27,21 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($list as $product)
+            @foreach($list as $obj)
                 <tr>
-                    <td>{{$product->name}}</td>
-                    <td><img src="{{$product->thumbnail}}" width="60px"></td>
-                    <td>{{$product->weight}}</td>
-                    <td>{{$product->price}}</td>
+                    <td>{{$obj->shipName}}</td>
+                    <td><img src="{{$obj->thumbnail}}" width="60px"></td>
+                    <td>{{$obj->weight}}</td>
+                    <td>{{$obj->price}}</td>
                     <td class="row hidden-phone">
-                        <a href="/admin/edit-product/{{$product->id}}" style="margin-right: 5px">
+                        <a href="/admin/edit-product/{{$obj->id}}" style="margin-right: 5px">
                             <button class="btn btn-primary"><i class="fas fa-edit"></i> Edit</button>
                         </a>
-                        <form action="/admin/destroy-product/{{$product->id}}" method="post">
+                        <form action="/admin/destroy-product/{{$obj->id}}" method="post">
                             @csrf
                             @method('delete')
                             <button class="btn px-3  btn-danger" href="#" title="Delete"
-                                    onclick="return confirm('Are you sure')"><i class="fas fa-trash-alt"></i> Delete
+                                    onclick="return confirm('Are you sure')">Delete
                             </button>
                         </form>
                     </td>

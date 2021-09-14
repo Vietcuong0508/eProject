@@ -10,28 +10,26 @@
                     <li>
                         <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fas fa-user"></i> <span class="mini-click-non">Users Manager</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="Peity Charts" href="/admin/create-user"><span
+                            <li><a href="/admin/create-user"><span
                                         class="mini-sub-pro"><i class="fas fa-tools"></i>Create User</span></a></li>
-                            <li><a title="Data Table" href="/admin/list-user"><span
+                            <li><a href="/admin/list-user"><span
                                         class="mini-sub-pro"><i class="fas fa-table"></i> List User</span></a></li>
                         </ul>
                     </li>
                     <li>
                         <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fab fa-product-hunt"></i> <span class="mini-click-non">Products Manager</span></a>
                         <ul class="submenu-angle form-mini-nb-dp" aria-expanded="false">
-                            <li><a title="Basic Form Elements" href="/admin/create-product"><span
+                            <li><a  href="/admin/create-product"><span
                                         class="mini-sub-pro"><i class="fas fa-tools"></i> Create Product</span></a></li>
-                            <li><a title="Advance Form Elements" href="/admin/list-product"><span
+                            <li><a  href="/admin/list-product"><span
                                         class="mini-sub-pro"><i class="fas fa-table"></i> List Product</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fas fa-calendar-week"></i> <span class="mini-click-non">Events Manager</span></a>
+                        <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fas fa-calendar-week"></i> <span class="mini-click-non">Order Manager</span></a>
                         <ul class="submenu-angle form-mini-nb-dp" aria-expanded="false">
-                            <li><a title="Basic Form Elements" href="/admin/events/create"><span
-                                        class="mini-sub-pro"><i class="fas fa-tools"></i> Create Event</span></a></li>
-                            <li><a title="Advance Form Elements" href="/admin/events/list"><span
-                                        class="mini-sub-pro"><i class="fas fa-table"></i> List Event</span></a></li>
+                            <li><a  href="/admin/events/list"><span
+                                        class="mini-sub-pro"><i class="fas fa-table"></i> List Order</span></a></li>
                         </ul>
                     </li>
 

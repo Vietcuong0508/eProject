@@ -55,7 +55,7 @@
                                 <div class="form-outline mb-4">
                                     <label class="form-label">Permission</label>
                                     <select name="permission" class="form-control border-success">
-                                        <option value="User">User</option>
+                                        <option value="User">user</option>
                                         <option value="Admin">admin</option>
                                     </select>
                                 </div>

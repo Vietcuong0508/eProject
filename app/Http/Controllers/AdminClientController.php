@@ -7,11 +7,6 @@ use Illuminate\Http\Request;
 
 class AdminClientController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $listUser = Admin::all();
@@ -20,7 +15,7 @@ class AdminClientController extends Controller
 
     public function register()
     {
-        return view('home-page.form-register');
+        return view('home.form-register');
     }
     public function create()
     {
@@ -28,7 +23,7 @@ class AdminClientController extends Controller
     }
     public function login()
     {
-        return view('home-page.form-login');
+        return view('home.form-login');
     }
     public function store(Request $request)
     {
@@ -42,7 +37,7 @@ class AdminClientController extends Controller
         $admin->permission = $request->get('permission');
         $admin->status = $request->get('status');
         $admin->save();
-        return redirect('home-page/login');
+        return redirect('home/login');
     }
     public function storeAdmin(Request $request)
     {

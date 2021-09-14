@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
-use App\Models\OrderDetails;
+use App\Models\OrderDetail;
 use App\Models\Product;
 use Carbon\Carbon;
 use Exception;
@@ -109,7 +109,7 @@ class ShoppingCartController extends Controller
                 $messageError = ' có lỗi xảy ra, sản phẩm với id'. $cartItem->id. 'không tồn tại hoặc đã bị xóa';
                 break;
             }
-            $orderDetail = new OrderDetails(); // hiên tại chưa thể order id vì chưa lưu
+            $orderDetail = new OrderDetail(); // hiên tại chưa thể order id vì chưa lưu
             $orderDetail->productId = $product->id;
             $orderDetail->unitPrice = $product->price;
             $orderDetail->quantity = $product->quantity * $orderDetail->unitPrice;
@@ -127,7 +127,7 @@ class ShoppingCartController extends Controller
                 $orderDetail->orderId = $order->id;
                 array_push($orderDetail, $orderDetail->toArray());
             }
-            OrderDetails::insert($orderDetailsArray);
+            OrderDetail::insert($orderDetailsArray);
             DB::commit();
             Session::forget('shopping_cart');
             Session::flash('success-msg','lưu hơn hàng thành công!');
@@ -135,5 +135,38 @@ class ShoppingCartController extends Controller
             DB::rollBack('error-msg', 'lưu đơn hàng thất bại');
         }
         return redirect('/shopping/list');
+    }
+
+
+    public function create_payment(Request $request)
+    {
+        $shopping_cart = Session::get('shoppingCart');
+
+        $order = new Order();
+        $order->fill($request->all());
+        $amount = 0;
+        foreach ($shopping_cart as $item){
+            $amount += $item->price * $item->quantity;
+        }
+        $order->total_price = $amount;
+        $order->save();
+
+        foreach ($shopping_cart as $item) {
+            $product = Product::find($item->id);
+            $order_detail = new OrderDetail();
+            $order_detail->orderId = $order->id;
+            $order_detail->productId = $product->id;
+            $order_detail->unitPrice = $product->price;
+            $order_detail->quantity = $item->quantity;
+            $order_detail->save();
+            $this->delete_cart($item->id);
+        }
+        return $order;
+    }
+
+    public function delete_cart($id){
+        $shopping_cart = Session::get('shoppingCart');
+        unset($shopping_cart[$id]);
+        Session::put('shoppingCart', $shopping_cart);
     }
 }

@@ -36,13 +36,13 @@
                     <td>{{$users->address}}</td>
                     <td>{{$users->permission}}</td>
                     <td class="row hidden-phone">
-                        <a href="/admin/edit/{{$users->id}}">
+                        <a href="/admin/edit/{{$users->id}}" style="margin-right: 5px">
                             <button class="btn btn-primary"><i class="fas fa-edit"></i> Edit</button></a>
                         <form action="/admin/destroy/{{$users->id}}" method="post">
                             @csrf
                             @method('delete')
                             <button class="btn px-3  btn-danger" href="#" title="Delete"
-                                    onclick="return confirm('Are you sure')">Delete
+                                    onclick="return confirm('Are you sure')"><i class="fas fa-trash-alt"></i> Delete
                             </button>
                         </form>
                     </td>

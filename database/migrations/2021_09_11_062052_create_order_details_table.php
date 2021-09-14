@@ -22,6 +22,7 @@ class CreateOrderDetailsTable extends Migration
             $table->double('unitPrice'); // giá một sản phẩm là bao nhiêu?
             //trong một đơn hàng, sẽ không  có các sản phẩm với id trùng nhau
             //mà chỉ thay đổi số lượng thôi
+            $table->timestamps();
             $table->primary(['orderId', 'productId']);
         });
     }

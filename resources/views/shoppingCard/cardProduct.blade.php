@@ -83,7 +83,7 @@
                             <h2>Order</h2>
                         </div>
 
-                        <form class="w3-container" method="post" action="/shopping/save">
+                        <form class="w3-container" method="post" action="/shopping/order">
                             @csrf
                             <div class="m-0 mt-3">
                                 <label>Name</label>

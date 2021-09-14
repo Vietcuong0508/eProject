@@ -17,15 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
-    return view('layout/layout');
-});
-
-Route::get('/home-page', [ProductController::class, 'listHome']);
-Route::get('/home-page/product', [ProductController::class, 'indexProduct']);
-Route::get('/home-page/login', [AdminClientController::class, 'login']);
-Route::get('/home-page/register', [AdminClientController::class, 'register']);
-Route::post('/home-page/register', [AdminClientController::class, 'store']);
+Route::get('/', [ProductController::class, 'listHome']);
+Route::get('/home/product', [ProductController::class, 'indexProduct']);
+Route::get('/home/login', [AdminClientController::class, 'login']);
+Route::get('/home/register', [AdminClientController::class, 'register']);
+Route::post('/home/register', [AdminClientController::class, 'store']);
 
 Route::get('/admin/list-user', [AdminClientController::class, 'index']);
 Route::get('/admin/create-user', [AdminClientController::class, 'create']);
@@ -45,6 +41,7 @@ Route::get('/shopping/add', [ShoppingCartController::class, 'add'])->name('name'
 Route::get('/shopping/cart', [ShoppingCartController::class, 'show']);
 Route::get('/shopping/remove', [ShoppingCartController::class, 'remove']);
 Route::post('/shopping/save', [ShoppingCartController::class, 'save']);
+Route::post('/shopping/order', [ShoppingCartController::class, 'create_payment']);
 
 
 Route::get('/admin', function () {
