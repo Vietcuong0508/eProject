@@ -6,7 +6,7 @@ a {
 }
 
 .wrapper {
-    margin-top: 62px;
+    margin-top: 61px;
 }
 
 .header {
@@ -73,12 +73,6 @@ a {
 
 .footer-icon img:hover {
     filter: grayscale(0);
-}
-
-.carousel-inner img {
-    margin-top: 60px;
-    height: 500px;
-    width: 100%;
 }
 
 .btn-submit {
