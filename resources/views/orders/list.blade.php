@@ -20,9 +20,8 @@
             <thead>
             <tr>
                 <th>Name</th>
-                <th>Thumbnail</th>
-                <th>Weight</th>
-                <th>Price</th>
+                <th>Phone</th>
+                <th>Address</th>
                 <th class="col-3">Action</th>
             </tr>
             </thead>
@@ -30,9 +29,8 @@
             @foreach($list as $obj)
                 <tr>
                     <td>{{$obj->shipName}}</td>
-                    <td><img src="{{$obj->thumbnail}}" width="60px"></td>
-                    <td>{{$obj->weight}}</td>
-                    <td>{{$obj->price}}</td>
+                    <td>{{$obj->shipPhone}}</td>
+                    <td>{{$obj->shipAddress}}</td>
                     <td class="row hidden-phone">
                         <a href="/admin/edit-product/{{$obj->id}}" style="margin-right: 5px">
                             <button class="btn btn-primary"><i class="fas fa-edit"></i> Edit</button>

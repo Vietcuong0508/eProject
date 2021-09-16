@@ -72,6 +72,9 @@
                             <div class="border-top">
                                 <div class="card-title px-2">{{$obj->name}}</div>
                             </div>
+                            <div class="">
+                                <div class="card-title px-2"><a href="">{{$obj->gardenName}}</a></div>
+                            </div>
                             <div class="row card-title">
                                 <div class="col-12">
                                     <p class="card-text">{{$obj->price}}00 đồng</p>

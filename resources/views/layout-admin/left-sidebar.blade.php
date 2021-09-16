@@ -28,7 +28,7 @@
                     <li>
                         <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fas fa-calendar-week"></i> <span class="mini-click-non">Order Manager</span></a>
                         <ul class="submenu-angle form-mini-nb-dp" aria-expanded="false">
-                            <li><a  href="/admin/events/list"><span
+                            <li><a  href="/admin/list-order"><span
                                         class="mini-sub-pro"><i class="fas fa-table"></i> List Order</span></a></li>
                         </ul>
                     </li>

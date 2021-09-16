@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminClientController;
 use App\Http\Controllers\LayoutAdminController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShoppingCartController;
 use Illuminate\Support\Facades\Route;
@@ -43,6 +44,7 @@ Route::get('/shopping/remove', [ShoppingCartController::class, 'remove']);
 Route::post('/shopping/save', [ShoppingCartController::class, 'save']);
 Route::post('/shopping/order', [ShoppingCartController::class, 'create_payment']);
 
+Route::get('/admin/list-order', [OrderController::class, 'index']);
 
 Route::get('/admin', function () {
     return view('layout-admin/dashboard');
