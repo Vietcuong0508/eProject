@@ -44,7 +44,7 @@ class ProductController extends Controller
         if ($gardenName == 5) {
             $queryBuilder = $queryBuilder->where('gardenName', 'like', 'Công Ty TNHH Lion Golden');
         }
-        $events = $queryBuilder->paginate(10)->appends(['search' => $search]);
+        $events = $queryBuilder->paginate(12)->appends(['search' => $search]);
         return view('home/list', [
             'list' => $events,
             'price' => $price,
@@ -85,6 +85,12 @@ class ProductController extends Controller
         return view('home/product', ['list' => Product::paginate(20)]);
     }
 
+    public function show($id)
+    {
+        $news = Product::where('id', '=', $id)->select('*')->first();
+        return view('/home/productDetail', ['news' => $news]);
+    }
+
     public function create()
     {
         return view('products/form');
@@ -98,12 +104,6 @@ class ProductController extends Controller
         $product->save();
         return redirect('/');
     }
-
-    public function show(Product $Product)
-    {
-        //
-    }
-
 
     public function edit($id)
     {

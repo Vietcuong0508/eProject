@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class, 'listHome'])->name('index');
 Route::get('/home/product', [ProductController::class, 'indexProduct']);
+Route::get('/home/productDetail/{id}', [ProductController::class, 'show']);
 Route::get('/home/login', [AdminClientController::class, 'login']);
 Route::post('/home/login', [AdminClientController::class, 'posLogin'])->name('login');
 Route::get('/home/logout', [AdminClientController::class, 'logout'])->name('logout');
