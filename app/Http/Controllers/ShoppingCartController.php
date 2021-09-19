@@ -14,31 +14,23 @@ use Illuminate\Support\Facades\Session;
 class ShoppingCartController extends Controller
 {
     public function add(Request $request) {
-        $productId = $request->get('productId');//Lấy ra thông tin sản phẩm từ request.
-        $productQuantity = $request->get('productQuantity');//Lấy ra số lượng sản phẩm cần thêm.
-        $action = $request->get('cartAction');//Lấy ra số lượng sản phẩm cần thêm.
-        //Kiểm tra sự tồn tại của sản phẩm trong database
+        $productId = $request->get('productId');
+        $productQuantity = $request->get('productQuantity');
+        $action = $request->get('cartAction');
         $product = Product::find($productId);
         if ($product == null) {
-            //Trong trường hợp sản phẩm không còn tồn tại thì show trang 404.
+
             return view('404');
         }
-        //Kiểm tra số lượng sản phẩm thêm vào đơn hàng, đảm bảo lớn hơn 0. $productQuantity
-        //Kiểm tra số lượng hàng còn trong kho (tạm thời coi như luôn có)
-        //Kiểm tra trong session có shopping cart chưa
         $shoppingCart = null;
         if (Session::has('shoppingCart')) {
-            //Có rồi thì lấy thông tin cũ ra
             $shoppingCart = Session::get('shoppingCart');
         } else {
-            //Chưa có thì tạo mới.
             $shoppingCart = [];
         }
-        //Kiểm tra trong shoppingcart có sản phẩm này chưa.
         $cartItem = null;
         $message = 'Thêm sản phẩm vào giỏ hàng thành công!';
         if (!array_key_exists($productId, $shoppingCart)) {
-            //Trường hợp chưa có sản phẩm, tạo ra cartItem mới, lấy thông tin từ chính sản phẩm đó.
             $cartItem = new \stdClass();
             $cartItem->id = $product->id;
             $cartItem->name = $product->name;
@@ -46,7 +38,6 @@ class ShoppingCartController extends Controller
             $cartItem->price = $product->price;
             $cartItem->quantity = intval($productQuantity);
         } else {
-            //Trường hợp có sản phẩm rồi thì lấy ra và tăng số lượng.
             $cartItem = $shoppingCart[$productId];
             if ($action != null && $action == 'update') {
                 $cartItem->quantity = $productQuantity;
@@ -56,7 +47,6 @@ class ShoppingCartController extends Controller
                 $message = 'Thêm mới sản phẩm vào giỏ hàng thành công!';
             }
         }
-        //Sau đó cho lại vào shopping cart
         $shoppingCart[$productId] = $cartItem;
         //Lưu shoppingcart vào lại trong session
         Session::put('shoppingCart', $shoppingCart);
@@ -82,13 +72,10 @@ class ShoppingCartController extends Controller
         }
     }
     public function save(Request $request) {
-        //shoppingCart(cartItem1, cartItem2)
-        //kiểm tra thông tin giỏ hàng, nếu không có sản phẩm trả về trang products.
         if(!Session::has('shoppingCart') || count(Session::get('shoppingCart')) == 0) {
             Session::flash('error-msg','hiện  không có sản phẩm nào trong giỏ hàng');
             return redirect('/shopping/list');
         }
-        // chuyển đổi từ shopping cart sang order, từng cartItem sẽ chuyển thành order detail
         $shoppingCart = Session::get('shoppingCart');
         $order = new Order();
         $order->totalPrice = 0;
@@ -109,7 +96,7 @@ class ShoppingCartController extends Controller
                 $messageError = ' có lỗi xảy ra, sản phẩm với id'. $cartItem->id. 'không tồn tại hoặc đã bị xóa';
                 break;
             }
-            $orderDetail = new OrderDetail(); // hiên tại chưa thể order id vì chưa lưu
+            $orderDetail = new OrderDetail();
             $orderDetail->productId = $product->id;
             $orderDetail->unitPrice = $product->price;
             $orderDetail->quantity = $product->quantity * $orderDetail->unitPrice;

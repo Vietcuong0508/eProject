@@ -17,11 +17,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ProductController::class, 'listHome']);
+
+Route::get('/', [ProductController::class, 'listHome'])->name('index');
 Route::get('/home/product', [ProductController::class, 'indexProduct']);
 Route::get('/home/login', [AdminClientController::class, 'login']);
+Route::post('/home/login', [AdminClientController::class, 'posLogin'])->name('login');
+Route::get('/home/logout', [AdminClientController::class, 'logout'])->name('logout');
 Route::get('/home/register', [AdminClientController::class, 'register']);
-Route::post('/home/register', [AdminClientController::class, 'store']);
+Route::post('/home/register', [AdminClientController::class, 'store'])->name('register');
+
+
+Route::get('/shopping/add', [ShoppingCartController::class, 'add'])->name('add');
+Route::get('/shopping/cart', [ShoppingCartController::class, 'show']);
+Route::get('/shopping/remove', [ShoppingCartController::class, 'remove']);
+Route::post('/shopping/save', [ShoppingCartController::class, 'save']);
+Route::post('/shopping/order', [ShoppingCartController::class, 'create_payment']);
+
+Route::get('/admin', function () {
+    return view('layout-admin/dashboard');
+});
 
 Route::get('/admin/list-user', [AdminClientController::class, 'index']);
 Route::get('/admin/create-user', [AdminClientController::class, 'create']);
@@ -36,14 +50,3 @@ Route::post('/admin/create-product', [ProductController::class, 'store']);
 Route::put('/admin/update-product/{id}', [ProductController::class, 'update']);
 Route::get('/admin/edit-product/{id}', [ProductController::class, 'edit']);
 Route::delete('/admin/destroy-product/{id}', [ProductController::class, 'destroy']);
-
-Route::get('/shopping/add', [ShoppingCartController::class, 'add'])->name('name');
-Route::get('/shopping/cart', [ShoppingCartController::class, 'show']);
-Route::get('/shopping/remove', [ShoppingCartController::class, 'remove']);
-Route::post('/shopping/save', [ShoppingCartController::class, 'save']);
-Route::post('/shopping/order', [ShoppingCartController::class, 'create_payment']);
-
-
-Route::get('/admin', function () {
-    return view('layout-admin/dashboard');
-});
