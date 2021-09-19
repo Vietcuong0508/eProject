@@ -15,15 +15,11 @@
                             </div>
 
                             <div class="col-xl-6">
-                                <form action="{{ route('register') }}" method="post">
+                                <form action="" method="post">
                                     @csrf
                                     <div class="card-body p-md-5 text-black">
                                         <h3 class="mb-3 text-uppercase">Register Form</h3>
-                                        @if(session('success'))
-                                            <div class="text-danger" style="font-weight: bold; margin-bottom: 10px;">
-                                                {{session('success')}}
-                                            </div>
-                                        @endif
+
                                         <div class="form-outline mb-4">
                                             <label class="form-label">Full name</label>
                                             <input type="text" class="form-control border-success" name="fullName" placeholder=" ">
@@ -64,13 +60,18 @@
                                         </div>
 
                                         <div class="form-outline mb-4" style="display: none">
-                                            <label class="form-label">Role</label>
-                                            <select name="role" class="form-control border-success">
+                                            <label class="form-label">Permission</label>
+                                            <select name="permission" class="form-control border-success">
                                                 <option value="user">user</option>
                                                 <option value="admin">admin</option>
                                             </select>
                                         </div>
 
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label">status</label>
+                                            <input type="text" class="form-control border-success" name="status"
+                                                   placeholder=" ">
+                                        </div>
 
                                         <div class="row justify-content-center px-3">
                                             <button type="submit" class="btn-block btn-submit">Submit form</button>

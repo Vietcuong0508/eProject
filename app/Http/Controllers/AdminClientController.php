@@ -1,22 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Validator;
-use App\Http\Requests\UserRequest;
-use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
-use Illuminate\Support\Facades\Hash;
+use App\Models\Admin;
+use Illuminate\Http\Request;
 
 class AdminClientController extends Controller
 {
     public function index()
     {
-        $listUser = User::all();
+        $listUser = Admin::all();
         return view('admin.list-user', ['list' => $listUser]);
     }
 
@@ -32,49 +25,38 @@ class AdminClientController extends Controller
     {
         return view('home.form-login');
     }
-
     public function store(Request $request)
     {
-        $user = new User();
-        $user->fill($request->all());
-        $user->password = Hash::make($request['password']);
-        $user->save();
-        return redirect()->route('login')
-            ->with('success', 'Đăng kí thành công');
+        $admin = new Admin();
+        $admin->fullName = $request->get('fullName');
+        $admin->phone = $request->get('phone');
+        $admin->email = $request->get('email');
+        $admin->address = $request->get('address');
+        $admin->username = $request->get('username');
+        $admin->password = $request->get('password');
+        $admin->permission = $request->get('permission');
+        $admin->status = $request->get('status');
+        $admin->save();
+        return redirect('home/login');
     }
-
-    public function posLogin(Request $request) {
-            $arr = [
-                'username' => $request->username,
-                'password' => $request->password
-            ];
-
-            if( Auth::attempt($arr)) {
-                // Kiểm tra đúng email và mật khẩu sẽ chuyển trang
-                return redirect()->route('index');
-            } else {
-                // Kiểm tra không đúng sẽ hiển thị thông báo lỗi
-                return back()->with('error-login', 'Tài khoản hoặc mật khẩu không hợp lệ. Vui lòng kiểm tra và thử lại.');
-            }
-    }
-
-    public function logout(){
-        Auth::logout();
-        return redirect()->route('index');
-    }
-
     public function storeAdmin(Request $request)
     {
-        $user = new User();
-        $user->fill($request->all());
-        $user->password = Hash::make($request['password']);
-        $user->save();
+        $admin = new Admin();
+        $admin->fullName = $request->get('fullName');
+        $admin->phone = $request->get('phone');
+        $admin->email = $request->get('email');
+        $admin->address = $request->get('address');
+        $admin->username = $request->get('username');
+        $admin->password = $request->get('password');
+        $admin->permission = $request->get('permission');
+        $admin->status = $request->get('status');
+        $admin->save();
         return redirect('/admin/list-user');
     }
 
     public function update(Request $request, $id)
     {
-        $obj = User::find($id);
+        $obj = Admin::find($id);
         if ($obj == null) {
             return view('error.404');
         }
@@ -93,7 +75,7 @@ class AdminClientController extends Controller
     public function edit($id)
     {
         //
-        $obj = User::find($id);
+        $obj = Admin::find($id);
         if ($obj == null) {
             return view('error.404');
         }
@@ -102,7 +84,7 @@ class AdminClientController extends Controller
 
     public function destroy($id)
     {
-        $obj = User::find($id);
+        $obj = Admin::find($id);
         if ($obj == null) {
             return view('error.404');
         }
