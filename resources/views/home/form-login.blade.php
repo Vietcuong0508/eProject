@@ -13,25 +13,29 @@
                                     width="525px" height="600px"
                                 />
                             </div>
-
                             <div class="col-xl-6">
-                                <form action="" method="post">
+                                <form action="{{route('login')}}" method="post">
                                     @csrf
                                     <div class="card-body text-black" style="padding: 80px">
                                         <h3 class="mb-3 text-uppercase">Login Form</h3>
+                                        @if(session('error-login'))
+                                            <div class="text-danger" style="font-weight: bold; margin-bottom: 10px;">
+                                                {{session('error-login')}}
+                                            </div>
+                                        @endif
                                         <label class="form-label">User Name</label>
                                         <div class="input-group form-group">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text bg-success border-success"><i class="fas fa-user"></i></span>
+                                                <span class="input-group-text bg-success border-success"><i class="fas fa-user" aria-hidden="true"></i></span>
                                             </div>
-                                            <input type="text" class="form-control border-success py-2" name="fullName"
+                                            <input type="text" class="form-control border-success py-2" name="username"
                                                    placeholder=" ">
                                         </div>
 
                                         <label class="form-label">Password</label>
                                         <div class="input-group form-group">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text  bg-success border-success"><i class="fas fa-key"></i></span>
+                                                <span class="input-group-text  bg-success border-success"><i class="fas fa-key" aria-hidden="true"></i></span>
                                             </div>
                                             <input type="password" class="form-control border-success" name="password"
                                                    placeholder=" ">

@@ -41,7 +41,7 @@
                                 $totalPrice += $products->price * $products->quantity;
                             }
                             ?>
-                            <form action="{{route('name')}}" method="get">
+                            <form action="{{route('add')}}" method="get">
                                 <input type="hidden" name="cartAction" value="update">
                                 <input type="hidden" name="productId" value="{{$products->id}}">
                                 <tr>
