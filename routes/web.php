@@ -45,6 +45,7 @@ Route::post('/shopping/save', [ShoppingCartController::class, 'save']);
 Route::post('/shopping/order', [ShoppingCartController::class, 'create_payment']);
 
 Route::get('/admin/list-order', [OrderController::class, 'index']);
+Route::post('/admin/update_status', [OrderController::class, 'update_status'])->name('update_status');
 
 Route::get('/admin', function () {
     return view('layout-admin/dashboard');

@@ -12,16 +12,16 @@ class OrderController extends Controller
         $queryBuilder = Order::query();
         $search = $request->query('search');
         if ($search && strlen($search) > 0) {
-            $queryBuilder = $queryBuilder->where('title', 'like', '%' .$search. '%');
+            $queryBuilder = $queryBuilder->where('shipName', 'like', '%' .$search. '%');
         }
         $events = $queryBuilder->paginate(10)->appends(['search' => $search]);
-        return view('Orders/list', [
+        return view('orders/list', [
             'list' => $events,
         ]);
     }
 
 
-    public function show(Order $Order)
+    public function show(Order $order)
     {
         //
     }
@@ -49,5 +49,14 @@ class OrderController extends Controller
         $detail = Order::find($id);
         $detail->delete();
         return redirect('/admin/list');
+    }
+
+    public function update_status(Request $request){
+        foreach (json_decode($request->array_id) as $item){
+            $order = Order::find($item);
+            $order->status = $request->desire;
+            $order->save();
+        }
+        return back();
     }
 }

@@ -38,7 +38,7 @@
                     <td class="row hidden-phone">
                         <a href="/admin/edit/{{$users->id}}" style="margin-right: 5px">
                             <button class="btn btn-primary"><i class="fas fa-edit"></i> Edit</button></a>
-                        <form action="/admin/destroy/{{$users->id}}" method="post">
+                        <form action="/admin/destroy/{{$users->id}}" method="post" style="float: left">
                             @csrf
                             @method('delete')
                             <button class="btn px-3  btn-danger" href="#" title="Delete"
