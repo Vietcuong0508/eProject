@@ -4,26 +4,78 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
-    public function listHome()
+    public function listHome(Request $request)
     {
-        Product::paginate(10);
-        return view('home/list', ['list' => Product::paginate(10)]);
+        $queryBuilder = Product::query();
+        $search = $request->get('search');
+        $price = $request->get('price');
+        $gardenName = $request->get('gardenName');
+        if ($search && strlen($search) > 0) {
+            $queryBuilder = $queryBuilder->where('name', 'like', '%' . $search . '%');
+        }
+        if ($price == 1) {
+            $queryBuilder = $queryBuilder->whereBetween('price', [0, 20]);
+        }
+        if ($price == 2) {
+            $queryBuilder = $queryBuilder->whereBetween('price', [20, 50]);
+        }
+        if ($price == 3) {
+            $queryBuilder = $queryBuilder->whereBetween('price', [50, 100]);
+        }
+        if ($price == 4) {
+            $queryBuilder = $queryBuilder->whereBetween('price', [100, 200]);
+        }
+
+        if ($gardenName == 1) {
+            $queryBuilder = $queryBuilder->where('gardenName', 'like', 'Trang trại rau hữu cơ Organik Đà Lạt');
+        }
+        if ($gardenName == 2) {
+            $queryBuilder = $queryBuilder->where('gardenName', 'like', 'Trang trại hữu cơ BIOPHAP farm');
+        }
+        if ($gardenName == 3) {
+            $queryBuilder = $queryBuilder->where('gardenName', 'like', 'Nông trại hữu cơ Viễn Phú');
+        }
+        if ($gardenName == 4) {
+            $queryBuilder = $queryBuilder->where('gardenName', 'like', 'Công ty cổ phần Deli Fresh');
+        }
+        if ($gardenName == 5) {
+            $queryBuilder = $queryBuilder->where('gardenName', 'like', 'Công Ty TNHH Lion Golden');
+        }
+        $events = $queryBuilder->paginate(10)->appends(['search' => $search]);
+        return view('home/list', [
+            'list' => $events,
+            'price' => $price,
+            'gardenName' => $gardenName
+        ]);
     }
 
     public function index(Request $request)
     {
         $queryBuilder = Product::query();
         $search = $request->query('search');
+        $price = $request->get('price');
         if ($search && strlen($search) > 0) {
-            $queryBuilder = $queryBuilder->where('title', 'like', '%' .$search. '%');
+            $queryBuilder = $queryBuilder->where('name', 'like', '%' . $search . '%');
+        }
+        if ($price == 1) {
+            $queryBuilder = $queryBuilder->whereBetween('price', [0, 20]);
+        }
+        if ($price == 2) {
+            $queryBuilder = $queryBuilder->whereBetween('price', [20, 50]);
+        }
+        if ($price == 3) {
+            $queryBuilder = $queryBuilder->whereBetween('price', [50, 100]);
+        }
+        if ($price == 4) {
+            $queryBuilder = $queryBuilder->whereBetween('price', [100, 200]);
         }
         $events = $queryBuilder->paginate(10)->appends(['search' => $search]);
         return view('products/list-product', [
             'list' => $events,
+            'price' => $price,
         ]);
     }
 
@@ -57,7 +109,7 @@ class ProductController extends Controller
     {
         $detail = Product::find($id);
         return view('products/edit', [
-            'edit'=>$detail
+            'edit' => $detail
         ]);
     }
 

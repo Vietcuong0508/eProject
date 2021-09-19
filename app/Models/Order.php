@@ -12,6 +12,7 @@ class Order extends Model
         'shipName',
         'shipAddress',
         'shipPhone',
+        'status',
         'note',
     ];
 }

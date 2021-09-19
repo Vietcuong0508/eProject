@@ -136,6 +136,7 @@ return [
 
     'providers' => [
 
+        Yajra\DataTables\DataTablesServiceProvider::class,
         /*
          * Laravel Framework Service Providers...
          */
@@ -190,6 +191,7 @@ return [
 
     'aliases' => [
 
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,

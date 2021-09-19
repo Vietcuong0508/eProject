@@ -12,7 +12,8 @@
         "jrm2k6/cloudder": "0.4.*",
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "yajra/laravel-datatables-oracle": "^9.18"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
