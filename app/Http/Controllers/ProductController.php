@@ -13,6 +13,7 @@ class ProductController extends Controller
         $search = $request->get('search');
         $price = $request->get('price');
         $gardenName = $request->get('gardenName');
+        $category = $request->get('category');
         if ($search && strlen($search) > 0) {
             $queryBuilder = $queryBuilder->where('name', 'like', '%' . $search . '%');
         }
@@ -44,11 +45,21 @@ class ProductController extends Controller
         if ($gardenName == 5) {
             $queryBuilder = $queryBuilder->where('gardenName', 'like', 'Công Ty TNHH Lion Golden');
         }
+        if ($category == 1) {
+            $queryBuilder = $queryBuilder->where('category', 'like', 'rau');
+        }
+        if ($category == 2) {
+            $queryBuilder = $queryBuilder->where('category', 'like', 'củ');
+        }
+        if ($category == 3) {
+            $queryBuilder = $queryBuilder->where('category', 'like', 'quả');
+        }
         $events = $queryBuilder->paginate(12)->appends(['search' => $search]);
         return view('home/list', [
             'list' => $events,
             'price' => $price,
-            'gardenName' => $gardenName
+            'gardenName' => $gardenName,
+            'category' => $category
         ]);
     }
 

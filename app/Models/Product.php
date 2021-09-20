@@ -14,4 +14,5 @@ class Product extends Model
         'thumbnail',
         'weight',
         'price',
+        'category'
     ];}

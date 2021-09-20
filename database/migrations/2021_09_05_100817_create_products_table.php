@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('thumbnail');
             $table->string('gardenName');
+            $table->string('category');
             $table->string('weight');
             $table->double('price');
             $table->timestamps();

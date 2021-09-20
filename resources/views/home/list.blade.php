@@ -70,10 +70,11 @@
                 <option value="3" {{$price && $price == 3 ? 'selected':''}}>50.000-100.000 VNĐ</option>
                 <option value="4" {{$price && $price == 4 ? 'selected':''}}>100.000-500.000 VNĐ</option>
             </select>
-            <select class="selectpicker" id="" name="">
+            <select class="selectpicker" id="category" name="category">
                 <option selected disabled hidden>Lọc danh mục</option>
-                <option value="1">Rau</option>
-                <option value="2">Củ</option>
+                <option value="1" {{$category && $category == 1 ? 'selected':''}}>Rau</option>
+                <option value="2" {{$category && $category == 2 ? 'selected':''}}>Củ</option>
+                <option value="3" {{$category && $category == 3 ? 'selected':''}}>Quả</option>
             </select>
             <select class="selectpicker" id="gardenName" name="gardenName">
                 <option selected disabled hidden>Lọc theo nhà vườn</option>
@@ -107,7 +108,7 @@
                                 </div>
                                 <div class="col-12">
                                     <a href="/shopping/add?productId={{$obj->id}}&productQuantity=1">
-                                        <button class="btn text-success border-success">Add to cart <i
+                                        <button class="btn text-success border-success">Thêm vào giỏ hàng<i
                                                 class="fa fa-shopping-cart"></i></button>
                                         <a href="/home/productDetail/{{$obj->id}}">
                                             <button class="btn text-success border-success">Chi tiết</button>
@@ -132,6 +133,9 @@
                 $('#filter_form').submit()
             })
             $('#gardenName').change(function () {
+                $('#filter_form').submit()
+            })
+            $('#category').change(function () {
                 $('#filter_form').submit()
             })
         })

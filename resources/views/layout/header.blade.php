@@ -5,14 +5,14 @@
     </div>
     <div class="search">
         <div class="">
-            <div class="search__box"><input type="text" class="search-input" placeholder="Search for products" value="">
+            <div class="search__box"><input type="text" class="search-input" placeholder="Tìm kiếm sản phẩm" value="">
                 <button class="btn search__btn"><i class="fas fa-search"></i></button>
             </div>
         </div>
     </div>
     <div class="cart-login">
         <div class="float-right mr-5 cart" style="padding: 20px; "><i class="far fa-shopping-cart"></i><a
-                href="/shopping/cart">My cart</a></div>
+                href="/shopping/cart">Giỏ Hàng</a></div>
         @if(\Illuminate\Support\Facades\Auth::check())
 
             <div class="dropdown float-right" style="padding: 13px">
@@ -25,7 +25,7 @@
                             class="fas fa-power-off mr-2 ic-logout"></i>Đăng xuất</a>
                 </div>
                 @else
-                    <div class="float-right login" style="padding: 20px"><a href="/home/login">Login</a></div>
+                    <div class="float-right login" style="padding: 20px"><a href="/home/login">Đăng nhập</a></div>
                 @endif
             </div>
         </div>
