@@ -104,7 +104,7 @@
                             </div>
                             <div class="row card-title">
                                 <div class="col-12">
-                                    <p class="card-text">{{$obj->price}}00 đồng</p>
+                                    <p class="card-text">{{$obj->price}}</p>
                                 </div>
                                 <div class="col-12">
                                     <a href="/shopping/add?productId={{$obj->id}}&productQuantity=1">
