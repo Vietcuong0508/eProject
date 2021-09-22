@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('gardenName');
             $table->string('category');
             $table->string('weight');
-            $table->double('price');
+            $table->string('price');
             $table->timestamps();
         });
     }
